@@ -14,7 +14,7 @@ const Table =({ users }) => {
             <table className="table">
                 <thread>
                     <tr>
-                        <th scope="col">Title</th>
+                        <th scope="col"></th>
                         <th scope="col" onClick={() => {
                             const usersCopy = [...users];
                             const updateSort = usersCopy.sort((a, b) => {
@@ -31,18 +31,8 @@ const Table =({ users }) => {
                             updatedSortedUsers(updateSort);
                         }}
                         >
-                            First
                         </th>
-                        <th scope="col">Last</th>
-                        <th scope="col">Gender</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Phone</th>
-                        <th scope="col">Cell</th>
-                        <th scope="col">City</th>
-                        <th scope="col">State</th>
-                        <th scope="col">Country</th>
-                        <th scope="col">Postal Code</th>
-                        <th scope="col">Picture</th>
+                        
                     </tr>
                 </thread>
                 <tbody>

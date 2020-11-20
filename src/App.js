@@ -4,6 +4,7 @@ import FilterInput from "./SearchInput";
 import {getUsers} from "./API";
 import "./App.css";
 
+
 function App() {
   const [initialUsers, updateAvailableUsers] = useState([]);
   const [usersToRender, updateUsersToRender] = useState([]);
