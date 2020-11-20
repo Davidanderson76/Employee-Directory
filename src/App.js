@@ -1,16 +1,30 @@
-import React from "react";
-import Main from "./components/Main";
-import Wrapper from "./components/Wrapper";
-import Header from "./components/Header";
+import React, { useEffect, useState } from "react";
+import Table from "./Table";
+import FilterInput from "./SearchInput";
+import {getUsers} from "./API";
 import "./App.css";
 
 function App() {
-  return (
+  const [initialUsers, updateAvailableUsers] = useState([]);
+  const [usersToRender, updateUsersToRender] = useState([]);
+
+  useEffect(() => {
+    getUsers().then(({data: { results } }) => updateAvailableUsers(results));
+  }, []);
+
+  return(
     <div className="App">
-      <Wrapper>
-        <Header/>
-          <Main/>
-      </Wrapper>
+      <h1>Employee Directory</h1>
+      <p>
+        Browse through the company directory
+      </p>
+      <FilterInput 
+        users={ initialUsers }
+        updateUsers={ updateUsersToRender }
+      />
+      <Table 
+        users={ usersToRender }
+      />
     </div>
   );
 };
